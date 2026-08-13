@@ -28,34 +28,37 @@ export function Header() {
         className={cn(
           "sticky top-0 z-40 w-full transition-all duration-300",
           scrolled
-            ? "bg-background/80 backdrop-blur-md border-b border-border/60 shadow-sm"
+            ? "bg-background/85 backdrop-blur-xl border-b border-border/60 shadow-md"
             : "bg-transparent border-b border-transparent"
         )}
       >
-        <div className="container max-w-6xl mx-auto flex h-16 items-center justify-between px-4 sm:px-6">
-          {/* Logo */}
+        <div className="container max-w-7xl mx-auto flex h-24 sm:h-28 items-center justify-between px-6 sm:px-8">
+          {/* Doubled Logo & Typography matching the user's photo font style */}
           <a
             href="#hero"
-            className="flex items-center gap-2.5 group focus:outline-none"
+            className="flex items-center gap-3.5 group focus:outline-none"
             aria-label="SSJCorp Home"
           >
-            <EyeLogo size={30} className="group-hover:scale-105 transition-transform" />
+            {/* Doubled Logo Size: 60px */}
+            <EyeLogo size={60} className="group-hover:scale-105 transition-transform shrink-0" />
+
+            {/* Doubled Title with ALL CAPS font-mono matching photo */}
             <HyperText
               startOnView
               animateOnHover
-              className="text-lg font-bold tracking-wider text-foreground group-hover:text-accent-hero transition-colors"
+              className="text-3xl sm:text-4xl font-mono font-bold tracking-[0.2em] uppercase text-foreground group-hover:text-accent-hero transition-colors"
             >
               SSJ
             </HyperText>
           </a>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          {/* Doubled Desktop Navigation Font Size (text-xl / text-2xl font-mono) */}
+          <nav className="hidden lg:flex items-center gap-10">
             {siteConfig.navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:text-foreground"
+                className="text-lg sm:text-xl font-mono font-medium tracking-wider text-muted-foreground transition-colors hover:text-foreground hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:text-foreground"
               >
                 {item.label}
               </a>
@@ -63,54 +66,54 @@ export function Header() {
           </nav>
 
           {/* Actions (Desktop) */}
-          <div className="hidden md:flex items-center gap-4">
-            <ThemeToggle />
+          <div className="hidden lg:flex items-center gap-5">
+            <ThemeToggle className="h-12 w-12" />
             <a
               href="#contacts"
-              className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-surface/90 px-4 py-2 text-xs font-semibold text-foreground transition-all duration-200 hover:border-accent-hero/60 hover:bg-accent-hero/10 hover:text-accent-hero active:scale-95 shadow-sm"
+              className="inline-flex items-center gap-2.5 rounded-full border border-border/80 bg-surface/90 px-6 py-3 text-sm sm:text-base font-mono font-semibold text-foreground transition-all duration-200 hover:border-accent-hero/60 hover:bg-accent-hero/10 hover:text-accent-hero active:scale-95 shadow-sm"
             >
               <span>Связаться</span>
-              <Send className="h-3.5 w-3.5" />
+              <Send className="h-4 w-4" />
             </a>
           </div>
 
           {/* Mobile Right Bar */}
-          <div className="flex md:hidden items-center gap-3">
-            <ThemeToggle />
+          <div className="flex lg:hidden items-center gap-4">
+            <ThemeToggle className="h-10 w-10" />
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-foreground hover:bg-surface focus:outline-none"
+              className="p-2.5 rounded-xl text-foreground hover:bg-surface focus:outline-none"
               aria-label="Toggle Menu"
             >
-              {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {mobileMenuOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
             </button>
           </div>
         </div>
 
         {/* Mobile Slide-out Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-b border-border/80 bg-surface/95 backdrop-blur-lg px-6 py-6 space-y-4 animate-in slide-in-from-top duration-200">
-            <nav className="flex flex-col space-y-3">
+          <div className="lg:hidden border-b border-border/80 bg-surface/95 backdrop-blur-xl px-8 py-8 space-y-6 animate-in slide-in-from-top duration-200">
+            <nav className="flex flex-col space-y-4">
               {siteConfig.navItems.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-base font-medium text-foreground hover:text-accent-hero transition-colors py-1.5"
+                  className="text-2xl font-mono font-medium tracking-wider text-foreground hover:text-accent-hero transition-colors py-2"
                 >
                   {item.label}
                 </a>
               ))}
             </nav>
-            <div className="pt-2">
+            <div className="pt-4">
               <a
                 href="#contacts"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full flex items-center justify-center gap-2 rounded-full bg-accent-hero px-4 py-2.5 text-sm font-medium text-white shadow-md"
+                className="w-full flex items-center justify-center gap-3 rounded-full bg-accent-hero px-6 py-3.5 text-lg font-mono font-bold text-white shadow-lg"
               >
                 <span>Связаться</span>
-                <Send className="h-4 w-4" />
+                <Send className="h-5 w-5" />
               </a>
             </div>
           </div>
