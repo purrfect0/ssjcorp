@@ -3,7 +3,8 @@ import { Hero } from "@/components/sections/hero";
 import { PortfolioSection } from "@/components/sections/portfolio-section";
 import { TelegramSection } from "@/components/sections/telegram-section";
 import { Footer } from "@/components/sections/footer";
-import { FlickeringGrid } from "@/components/ui/flickering-grid";
+import { AnimatedGridPattern } from "@/components/ui/animated-grid-pattern";
+import { cn } from "@/lib/utils";
 
 export default function Home() {
   return (
@@ -12,15 +13,17 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
 
-        {/* Shared FlickeringGrid background for Portfolio and Telegram sections */}
+        {/* High performance AnimatedGridPattern background for Portfolio and Telegram sections */}
         <div className="relative overflow-hidden">
-          <FlickeringGrid
-            squareSize={4}
-            gridGap={6}
-            flickerChance={0.2}
-            color="#7C6CF6"
-            maxOpacity={0.2}
-            className="absolute inset-0 z-0 pointer-events-none"
+          <AnimatedGridPattern
+            numSquares={24}
+            maxOpacity={0.18}
+            duration={3}
+            repeatDelay={1}
+            className={cn(
+              "[mask-image:radial-gradient(600px_ellipse_at_center,white,transparent)]",
+              "inset-x-0 inset-y-[-20%] h-[140%] skew-y-6"
+            )}
           />
           <div className="relative z-10">
             <PortfolioSection />

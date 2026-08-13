@@ -20,10 +20,10 @@ export function Hero() {
       id="hero"
       className="relative min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center overflow-hidden py-16 px-4 sm:px-6"
     >
-      {/* Background Particles (high density) */}
+      {/* Background Particles (optimized performance) */}
       <Particles
         className="absolute inset-0 z-0"
-        quantity={300}
+        quantity={160}
         ease={50}
         color={particleColor}
       />
