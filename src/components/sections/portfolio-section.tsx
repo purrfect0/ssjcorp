@@ -22,7 +22,7 @@ export function PortfolioSection() {
   const placeholders = siteConfig.portfolio.placeholders;
 
   return (
-    <section id="portfolio" className="relative py-24 px-4 overflow-hidden bg-background">
+    <section id="portfolio" className="relative py-24 px-4 overflow-hidden bg-transparent">
       {/* Section Header */}
       <div className="container max-w-5xl mx-auto mb-16 px-4">
         <BlurFade delay={0.1}>

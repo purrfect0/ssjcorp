@@ -8,7 +8,7 @@ import { Bot, MessageSquare, CheckCircle2, ArrowRight } from "lucide-react";
 
 export function TelegramSection() {
   return (
-    <section id="telegram" className="relative py-24 px-4 bg-background overflow-hidden">
+    <section id="telegram" className="relative py-24 px-4 bg-transparent overflow-hidden">
       <div className="container max-w-5xl mx-auto px-4">
         {/* Section Header */}
         <BlurFade delay={0.1}>
