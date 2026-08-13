@@ -91,11 +91,14 @@ export function Hero() {
       </div>
 
       {/* Scroll Down Indicator */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 opacity-60 hover:opacity-100 transition-opacity">
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1 opacity-60 hover:opacity-100 transition-opacity">
         <a href="#portfolio" aria-label="Scroll to portfolio">
           <ChevronDown className="h-5 w-5 text-muted-foreground animate-bounce" />
         </a>
       </div>
+
+      {/* Smooth Bottom Gradient Fade Transition into Portfolio Section */}
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent via-background/60 to-background z-10" />
     </section>
   );
 }
