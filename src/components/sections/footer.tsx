@@ -17,8 +17,8 @@ export function Footer() {
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10">
           {/* Brand Logo & HyperText Company Name matching photo font style (font-mono font-medium tracking-[0.2em]) */}
           <div className="space-y-4 max-w-md">
-            <div className="flex items-center gap-3.5">
-              <EyeLogo size={56} className="shrink-0" />
+            <div className="flex items-center gap-3">
+              <EyeLogo size={28} className="shrink-0" />
               <HyperText
                 startOnView
                 animateOnHover

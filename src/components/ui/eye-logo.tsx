@@ -8,8 +8,7 @@ interface EyeLogoProps extends React.SVGProps<SVGSVGElement> {
   size?: number;
 }
 
-export function EyeLogo({ className, size = 60, ...props }: EyeLogoProps) {
-  // Proportional dimensions for 517x295 viewBox (aspect ratio 1.75:1)
+export function EyeLogo({ className, size = 32, ...props }: EyeLogoProps) {
   const width = size * 1.75;
   const height = size;
 

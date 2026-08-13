@@ -36,10 +36,10 @@ export function Header() {
           {/* Logo & Company Name with exact photo font style: less bold (font-medium), monospaced, wide tracking */}
           <a
             href="#hero"
-            className="flex items-center gap-3.5 group focus:outline-none"
+            className="flex items-center gap-3 group focus:outline-none"
             aria-label="SSJCorp Home"
           >
-            <EyeLogo size={60} className="group-hover:scale-105 transition-transform shrink-0" />
+            <EyeLogo size={32} className="group-hover:scale-105 transition-transform shrink-0" />
 
             <HyperText
               startOnView
