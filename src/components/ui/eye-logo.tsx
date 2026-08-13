@@ -9,28 +9,29 @@ interface EyeLogoProps extends React.SVGProps<SVGSVGElement> {
 }
 
 export function EyeLogo({ className, size = 60, ...props }: EyeLogoProps) {
-  const width = size * 1.78;
+  // Proportional dimensions for 517x295 viewBox (aspect ratio 1.75:1)
+  const width = size * 1.75;
   const height = size;
 
   return (
     <svg
       width={width}
       height={height}
-      viewBox="0 0 500 280"
-      fill="none"
+      version="1.0"
       xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 517.000000 295.000000"
+      preserveAspectRatio="xMidYMid meet"
       className={cn("text-foreground transition-colors shrink-0", className)}
       {...props}
     >
-      <path
-        d="M 22 140 C 22 45 230 18 340 18 C 420 18 480 72 480 140 C 480 208 420 262 340 262 C 230 262 22 235 22 140 Z"
-        stroke="currentColor"
-        strokeWidth="32"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <circle cx="340" cy="140" r="76" stroke="currentColor" strokeWidth="30" fill="none" />
-      <circle cx="340" cy="140" r="38" fill="currentColor" />
+      <g
+        transform="translate(0.000000,295.000000) scale(0.100000,-0.100000)"
+        fill="currentColor"
+        stroke="none"
+      >
+        <path d="M3150 2939 c-1160 -70 -2170 -356 -2715 -769 -279 -211 -429 -454 -429 -695 0 -189 79 -358 251 -536 488 -506 1604 -858 2948 -930 308 -16 662 -7 782 20 299 66 523 189 739 405 288 289 434 638 434 1041 0 403 -146 752 -434 1041 -181 181 -355 288 -586 362 -190 61 -220 64 -545 67 -165 2 -365 -1 -445 -6z m647 -430 c785 -87 1195 -963 762 -1629 -55 -84 -205 -234 -289 -289 -361 -235 -809 -235 -1170 0 -84 55 -234 205 -289 289 -235 362 -235 808 0 1170 55 84 205 234 289 289 171 111 358 169 573 180 15 0 71 -4 124 -10z m-1271 -123 c-305 -389 -394 -893 -244 -1366 56 -178 161 -364 282 -504 l51 -59 -70 7 c-140 14 -424 57 -595 92 -809 161 -1349 433 -1498 754 -23 47 -26 69 -26 155 0 116 18 166 98 272 232 307 916 575 1776 697 333 47 305 53 226 -48z" />
+        <path d="M3540 2047 c-111 -34 -176 -73 -266 -162 -90 -90 -141 -179 -168 -295 -20 -83 -20 -207 0 -290 52 -223 241 -412 464 -464 83 -20 207 -20 290 0 223 52 412 241 464 464 34 141 11 315 -56 443 -43 82 -174 213 -253 254 -143 75 -326 94 -475 50z" />
+      </g>
     </svg>
   );
 }
