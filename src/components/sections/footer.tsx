@@ -11,7 +11,7 @@ export function Footer() {
   return (
     <footer id="contacts" className="relative border-t border-border/60 bg-surface/60 pt-20 pb-16 overflow-hidden">
       {/* Background GlyphMatrix animation as requested */}
-      <GlyphMatrix rows={10} cols={28} speed={120} className="opacity-10" />
+      <GlyphMatrix rows={16} cols={36} speed={90} className="opacity-35 dark:opacity-45" />
 
       <div className="container max-w-6xl mx-auto px-6 relative z-10 space-y-16">
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10">

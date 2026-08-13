@@ -129,10 +129,4 @@
   body {
     @apply bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary;
   }
-  /* Hide system cursor on desktop to fully replace with custom Magic UI pointer */
-  @media (pointer: fine) {
-    html, body, a, button, input, select, textarea {
-      cursor: none !important;
-    }
-  }
 }

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Pointer } from "@/components/ui/pointer";
 import { siteConfig } from "@/lib/site-config";
 import "./globals.css";
 
@@ -56,7 +55,6 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Pointer />
           {children}
         </ThemeProvider>
       </body>
