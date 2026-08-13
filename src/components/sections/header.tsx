@@ -33,32 +33,30 @@ export function Header() {
         )}
       >
         <div className="container max-w-7xl mx-auto flex h-24 sm:h-28 items-center justify-between px-6 sm:px-8">
-          {/* Doubled Logo & Typography matching the user's photo font style */}
+          {/* Logo & Company Name with exact photo font style: less bold (font-medium), monospaced, wide tracking */}
           <a
             href="#hero"
             className="flex items-center gap-3.5 group focus:outline-none"
             aria-label="SSJCorp Home"
           >
-            {/* Doubled Logo Size: 60px */}
             <EyeLogo size={60} className="group-hover:scale-105 transition-transform shrink-0" />
 
-            {/* Doubled Title with ALL CAPS font-mono matching photo */}
             <HyperText
               startOnView
               animateOnHover
-              className="text-3xl sm:text-4xl font-mono font-bold tracking-[0.2em] uppercase text-foreground group-hover:text-accent-hero transition-colors"
+              className="text-3xl sm:text-4xl font-mono font-medium tracking-[0.2em] uppercase text-foreground group-hover:text-accent-hero transition-colors"
             >
               SSJ
             </HyperText>
           </a>
 
-          {/* Doubled Desktop Navigation Font Size (text-xl / text-2xl font-mono) */}
+          {/* Navigation Links: less bold (font-normal), tall monospaced font, wide tracking */}
           <nav className="hidden lg:flex items-center gap-10">
             {siteConfig.navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="text-lg sm:text-xl font-mono font-medium tracking-wider text-muted-foreground transition-colors hover:text-foreground hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:text-foreground"
+                className="text-lg sm:text-xl font-mono font-normal tracking-[0.15em] text-muted-foreground transition-colors hover:text-foreground hover:scale-105 active:scale-95 focus-visible:outline-none"
               >
                 {item.label}
               </a>
@@ -70,7 +68,7 @@ export function Header() {
             <ThemeToggle className="h-12 w-12" />
             <a
               href="#contacts"
-              className="inline-flex items-center gap-2.5 rounded-full border border-border/80 bg-surface/90 px-6 py-3 text-sm sm:text-base font-mono font-semibold text-foreground transition-all duration-200 hover:border-accent-hero/60 hover:bg-accent-hero/10 hover:text-accent-hero active:scale-95 shadow-sm"
+              className="inline-flex items-center gap-2.5 rounded-full border border-border/80 bg-surface/90 px-6 py-3 text-sm sm:text-base font-mono font-medium tracking-wider text-foreground transition-all duration-200 hover:border-accent-hero/60 hover:bg-accent-hero/10 hover:text-accent-hero active:scale-95 shadow-sm"
             >
               <span>Связаться</span>
               <Send className="h-4 w-4" />
@@ -100,7 +98,7 @@ export function Header() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-2xl font-mono font-medium tracking-wider text-foreground hover:text-accent-hero transition-colors py-2"
+                  className="text-2xl font-mono font-normal tracking-wider text-foreground hover:text-accent-hero transition-colors py-2"
                 >
                   {item.label}
                 </a>

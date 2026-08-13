@@ -2,27 +2,30 @@
 
 import React from "react";
 import { EyeLogo } from "@/components/ui/eye-logo";
-import { DotPattern } from "@/components/ui/dot-pattern";
+import { HyperText } from "@/components/ui/hyper-text";
+import { GlyphMatrix } from "@/components/ui/glyph-matrix";
 import { siteConfig } from "@/lib/site-config";
 import { Send, Mail } from "lucide-react";
 
 export function Footer() {
   return (
     <footer id="contacts" className="relative border-t border-border/60 bg-surface/60 pt-20 pb-16 overflow-hidden">
-      {/* Background DotPattern */}
-      <DotPattern className="opacity-5" />
+      {/* Background GlyphMatrix animation as requested */}
+      <GlyphMatrix rows={10} cols={28} speed={120} className="opacity-10" />
 
       <div className="container max-w-6xl mx-auto px-6 relative z-10 space-y-16">
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10">
-          {/* Enlarge Brand Logo & Typography matching the user's photo font style */}
+          {/* Brand Logo & HyperText Company Name matching photo font style (font-mono font-medium tracking-[0.2em]) */}
           <div className="space-y-4 max-w-md">
             <div className="flex items-center gap-3.5">
-              {/* Doubled Logo Size: 56px */}
               <EyeLogo size={56} className="shrink-0" />
-              {/* Doubled Company Name matching photo */}
-              <span className="text-3xl sm:text-4xl font-mono font-bold tracking-[0.2em] uppercase text-foreground">
+              <HyperText
+                startOnView
+                animateOnHover
+                className="text-3xl sm:text-4xl font-mono font-medium tracking-[0.2em] uppercase text-foreground"
+              >
                 {siteConfig.name}
-              </span>
+              </HyperText>
             </div>
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
               {siteConfig.tagline}
@@ -35,7 +38,7 @@ export function Footer() {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-lg sm:text-xl font-mono font-medium tracking-wider text-muted-foreground hover:text-foreground transition-colors"
+                className="text-lg sm:text-xl font-mono font-normal tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors"
               >
                 {item.label}
               </a>

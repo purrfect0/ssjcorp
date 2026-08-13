@@ -14,7 +14,7 @@ export function Pointer({ className, children }: PointerProps) {
   const x = useMotionValue(-100);
   const y = useMotionValue(-100);
 
-  const springConfig = { damping: 25, stiffness: 350 };
+  const springConfig = { damping: 28, stiffness: 450, mass: 0.2 };
   const cursorX = useSpring(x, springConfig);
   const cursorY = useSpring(y, springConfig);
 
@@ -22,7 +22,7 @@ export function Pointer({ className, children }: PointerProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Only show on devices with fine pointer (mouse)
+    // Only run on desktop devices with fine mouse pointer
     if (typeof window === "undefined" || !window.matchMedia("(pointer: fine)").matches) {
       return;
     }
@@ -62,8 +62,7 @@ export function Pointer({ className, children }: PointerProps) {
   return (
     <motion.div
       className={cn(
-        "pointer-events-none fixed left-0 top-0 z-[9999] flex items-center gap-1.5 rounded-full bg-foreground/90 text-background px-2.5 py-1.5 shadow-2xl backdrop-blur-md transition-transform duration-150",
-        isPointer ? "scale-125 bg-accent-hero text-white" : "scale-100",
+        "pointer-events-none fixed left-0 top-0 z-[99999] flex items-center gap-1.5 transition-transform duration-100",
         className
       )}
       style={{
@@ -71,13 +70,40 @@ export function Pointer({ className, children }: PointerProps) {
         translateY: cursorY,
       }}
     >
-      {/* Eye Logo Icon as the custom cursor */}
-      <EyeLogo size={20} className={isPointer ? "text-white animate-spin-slow" : "text-background"} />
-      {children && (
-        <span className="text-[10px] font-mono font-bold tracking-wider uppercase">
-          {children}
+      {/* Custom Mouse Pointer SVG Arrow */}
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className={cn(
+          "h-5 w-5 drop-shadow-md transition-transform duration-200",
+          isPointer ? "scale-125 rotate-[-15deg] text-accent-hero fill-accent-hero" : "text-foreground fill-foreground"
+        )}
+      >
+        <path
+          d="M 3 3 L 10 21 L 13.5 13.5 L 21 10 Z"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinejoin="round"
+        />
+      </svg>
+
+      {/* Custom Eye Logo Badge attached to pointer */}
+      <div
+        className={cn(
+          "flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-mono font-medium shadow-xl backdrop-blur-md transition-all duration-200 border",
+          isPointer
+            ? "border-accent-hero/60 bg-accent-hero text-white scale-110 shadow-accent-hero/30"
+            : "border-border/80 bg-surface/90 text-foreground shadow-black/20"
+        )}
+      >
+        <EyeLogo size={16} className={isPointer ? "text-white" : "text-foreground"} />
+        <span className="text-[10px] tracking-wider uppercase">
+          {children || "SSJ"}
         </span>
-      )}
+      </div>
     </motion.div>
   );
 }
