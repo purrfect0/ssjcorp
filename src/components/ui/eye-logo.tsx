@@ -9,32 +9,28 @@ interface EyeLogoProps extends React.SVGProps<SVGSVGElement> {
 }
 
 export function EyeLogo({ className, size = 60, ...props }: EyeLogoProps) {
-  // Calculate proportional width based on 1.8:1 aspect ratio of the eye icon
-  const width = size * 1.8;
+  const width = size * 1.78;
   const height = size;
 
   return (
     <svg
       width={width}
       height={height}
-      viewBox="0 0 100 55"
+      viewBox="0 0 500 280"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={cn("text-foreground transition-colors shrink-0", className)}
       {...props}
     >
-      {/* Outer almond shape stroke */}
       <path
-        d="M 8 27.5 C 22 7, 72 7, 92 27.5 C 72 48, 22 48, 8 27.5 Z"
+        d="M 22 140 C 22 45 230 18 340 18 C 420 18 480 72 480 140 C 480 208 420 262 340 262 C 230 262 22 235 22 140 Z"
         stroke="currentColor"
-        strokeWidth="8"
+        strokeWidth="32"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      {/* Inner ring circle */}
-      <circle cx="63" cy="27.5" r="15" stroke="currentColor" strokeWidth="7" fill="none" />
-      {/* Center pupil solid circle */}
-      <circle cx="63" cy="27.5" r="7.5" fill="currentColor" />
+      <circle cx="340" cy="140" r="76" stroke="currentColor" strokeWidth="30" fill="none" />
+      <circle cx="340" cy="140" r="38" fill="currentColor" />
     </svg>
   );
 }
